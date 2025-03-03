@@ -37,7 +37,7 @@ export function HomeHeader() {
                     <Button
                         variant="ghost"
                         size="icon"
-                        className="text-[#7f00ff] hover:bg-[#7f00ff]/10 hover:text-[#7f00ff]"
+                        className="text-cyan-500 hover:bg-cyan-600]"
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                     >
                         {isMenuOpen ? (
@@ -76,8 +76,7 @@ export function HomeHeader() {
                     <Button
                         
                         onClick={() => router.push('/app/chat/default')}
-                        style={{ backgroundColor: '#7f00ff', color: 'white' }}
-                        className="hover:bg-[#7f00ff]/90"
+                        className="bg-cyan-500 hover:bg-cyan-600"
                     >
                         Launch App
                     </Button>
