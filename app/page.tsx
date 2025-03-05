@@ -1,114 +1,41 @@
 'use client';
 import { useState, useEffect, ReactNode } from 'react';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Stars } from '@react-three/drei';
-import * as THREE from 'three';
-import { Navbar } from '@/components/common/navbar';
+import { LandingNavbar } from '@/components/common/landingnavbar';
 import { Button } from '@/components/ui/button';
+import { FeatureCard } from '@/components/landing/featurecard';
+import { DistrictCard } from '@/components/landing/districtcard';
+import { Canvas } from '@react-three/fiber';
+import { CyberpunkCity } from '@/components/landing/cyberpunkcity';
+import { OrbitControls } from '@react-three/drei';
+import { LandingFooter } from '@/components/common/landingfooter';
 
-// 3D City Component
-const CyberpunkCity = () => {
-  // Generate buildings with varying heights and colors
-  const buildings = Array.from({length:50}).map((_, i) => ({
-    position: [
-      Math.random() * 40 - 20,
-      0,
-      Math.random() * 40 - 20
-    ],
-    height: Math.random() * 8 + 2,
-    width: Math.random() * 2 + 0.5,
-    depth: Math.random() * 2 + 0.5,
-    color: new THREE.Color(`hsl(${180 + Math.random() * 60}, 100%, ${50 + Math.random() * 30}%)`),
-    emissive: new THREE.Color(`hsl(${180 + Math.random() * 60}, 100%, 50%)`),
-  }));
-
-  return (
-    <>
-      <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade />
-      <ambientLight intensity={0.2} />
-      <directionalLight position={[0, 10, 5]} intensity={0.5} />
-      <fog attach="fog" args={['#000', 1, 50]} />
-      
-      {/* Ground */}
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.1, 0]}>
-        <planeGeometry args={[100, 100]} />
-        <meshStandardMaterial color="black" />
-      </mesh>
-      
-      {/* Grid */}
-      <gridHelper args={[100, 100, '#444', '#222']} position={[0, 0, 0]} />
-      
-      {/* Buildings */}
-      {buildings.map((building, i) => (
-        <mesh key={i} position={[building.position[0], building.height / 2, building.position[2]]}>
-          <boxGeometry args={[building.width, building.height, building.depth]} />
-          <meshStandardMaterial 
-            color={building.color}
-            emissive={building.emissive}
-            emissiveIntensity={0.5 + Math.random() * 0.5}
-            metalness={0.8}
-            roughness={0.2}
-          />
-        </mesh>
-      ))}
-    </>
-  );
-};
-
-// Feature Card Component
-const FeatureCard = ({ icon, title, description }:{ icon:ReactNode, title:string, description:string }) => (
-  <div className="bg-gray-900/80 backdrop-blur-sm p-6 rounded-xl border border-cyan-900/50 hover:border-cyan-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/10">
-    <div className="w-12 h-12 bg-cyan-500/20 rounded-lg flex items-center justify-center mb-4">
-      {icon}
-    </div>
-    <h3 className="text-xl font-bold text-cyan-400 mb-2">{title}</h3>
-    <p className="text-gray-300">{description}</p>
-  </div>
-);
-
-// District Card Component
-const DistrictCard = ({ title, description, image }:{title:string, description:string,image:string }) => (
-  <div className="group relative overflow-hidden rounded-xl">
-    {/* Background image */}
-    <div 
-      className="absolute inset-0 bg-cover bg-center"
-      style={{ 
-        backgroundImage: `url(${image})`,
-        transform: 'scale(1.0)',
-        transition: 'transform 0.5s ease-in-out'
-      }}
-    ></div>
-    
-    {/* Overlay */}
-    <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
-    
-    {/* Content */}
-    <div className="relative p-6 h-64 flex flex-col justify-end transform transition-transform duration-300 group-hover:translate-y-[-10px]">
-      <h3 className="text-2xl font-bold text-white mb-2">{title}</h3>
-      <p className="text-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300">{description}</p>
-    </div>
-  </div>
-);
-
-// Main Component
 export default function SonikastLanding() {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="relative min-h-screen text-white">
+      {/* Navbar */}
+      <div className="absolute top-0 left-0 w-full z-50">
+        <LandingNavbar />
+      </div>
+
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <Canvas className="absolute inset-0">
-          <CyberpunkCity />
-          <OrbitControls 
-            enableZoom={false}
-            enablePan={false}
-            autoRotate
-            autoRotateSpeed={0.5}
-            minPolarAngle={Math.PI / 3}
-            maxPolarAngle={Math.PI / 2.5}
-          />
-        </Canvas>
-        
-        <div className="container mx-auto px-6 relative z-10 text-center">
+      <section className="relative h-screen flex flex-col items-center justify-center px-4 text-center overflow-hidden">
+        {/* Background 3D Scene */}
+        <div className="absolute inset-0 -z-10">
+          <Canvas className="w-full h-full">
+            <CyberpunkCity />
+            <OrbitControls 
+              enableZoom={false}
+              enablePan={false}
+              autoRotate
+              autoRotateSpeed={0.5}
+              minPolarAngle={Math.PI / 3}
+              maxPolarAngle={Math.PI / 2.5}
+            />
+          </Canvas>
+        </div>
+
+        {/* Hero Content */}
+        <div className="container mx-auto px-6 relative z-10">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
             Welcome to Sonikast Metropolis
           </h1>
@@ -124,7 +51,8 @@ export default function SonikastLanding() {
             </Button>
           </div>
         </div>
-        
+
+        {/* Scroll Indicator */}
         <div className="absolute bottom-10 left-0 right-0 text-center">
           <div className="animate-bounce">
             <svg 
@@ -144,8 +72,6 @@ export default function SonikastLanding() {
           </div>
         </div>
       </section>
-      
-      {/* Features Section */}
       <section id="features" className="py-20 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-blue-950/20 to-black"></div>
         <div className="container mx-auto px-6 relative z-10">
@@ -303,10 +229,11 @@ export default function SonikastLanding() {
             Join the next generation of DeFi innovation and experience the future of decentralized finance
           </p>
           <Button className="bg-cyan-500 hover:bg-cyan-600 text-black text-lg px-8 py-6">
-            Connect Wallet to Begin
+            Enter Metropolis
           </Button>
         </div>
       </section>
+      <LandingFooter/>
     </div>
   );
 }
