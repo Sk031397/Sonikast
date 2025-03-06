@@ -1,6 +1,7 @@
 'use client';
 import Image from "next/image";
 import { Bell,Settings } from "lucide-react";
+import { ConnectWallet } from "../common/connect-wallet";
 const AppHeader = () => {
   return (
     <header className="border-b border-gray-800 ">
@@ -20,12 +21,7 @@ const AppHeader = () => {
               <Settings size={16}/>
             </button>
             <div className="relative">
-              <button className="flex items-center space-x-2 border border-gray-700 rounded-full px-3 py-1 hover:bg-gray-800 transition duration-200">
-                <span className="text-sm">user@sonikast.io</span>
-                <div className="w-6 h-6 rounded-full bg-indigo-600 flex items-center justify-center">
-                  <span className="text-xs font-bold">U</span>
-                </div>
-              </button>
+              <ConnectWallet/>
             </div>
           </div>
         </div>
