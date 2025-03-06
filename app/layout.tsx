@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { WalletProvider } from "@/providers/wallet-provider";
+import Navbar from "@/components/common/navbar";
+import Footer from "@/components/common/footer";
 
 const inter = Inter({
   display: "swap",
@@ -20,9 +22,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-black`}>
+      <body className={`${inter.className} bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900`}>
         <WalletProvider>
           {children}
+          <Footer/>
         </WalletProvider>
       </body>
     </html>

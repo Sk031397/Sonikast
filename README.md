@@ -1,32 +1,26 @@
-# Sonikast Metropolis
+Turn your investments into music with the world's first sound-driven DeFi platform.
 
-![Sonikast Metropolis](https://via.placeholder.com/800x400)
+About Sonikast
+Sonikast is an innovative platform that revolutionizes how users interact with Web3 by creating a sonification layer for decentralized finance. The platform transforms crypto assets and market movements into a dynamic audio-visual experience, allowing users to "hear" their portfolio performance and interact with financial instruments through an immersive orchestra-like interface.
+Features
+🎵 Sonic Asset Synthesis
+Convert your crypto holdings into unique audio signatures based on token type, market volatility, historical performance, and current yield.
+🎼 Financial Orchestra
+Arrange your investments in a virtual space where different positions create harmonizing or contrasting sounds. Well-balanced portfolios create pleasing harmonies while risky combinations produce dissonance.
+👥 Collaborative Investment Spaces
+Create virtual rooms where friends can join and add their financial instruments. DAOs can visualize treasury management through sound, and community-created sound templates can be bought/sold as NFTs.
+🤖 AI Composition Assistant
+Our AI analyzes market trends and suggests optimal portfolio arrangements for both financial returns and audio aesthetics, rebalancing opportunities, and risk assessment through sound patterns.
+🎮 Gamification Elements
 
-## Overview
+Achievement system unlocking sonic instruments by reaching DeFi milestones
+Leaderboards for best performing portfolios with harmonious compositions
+Sound challenges and trading tournaments
 
-Sonikast Metropolis is an immersive, AI-powered DeFi platform that combines cutting-edge technology with a futuristic cyberpunk interface. This platform creates a virtual city experience where users can explore various financial districts, engage with AI-driven insights, and participate in the decentralized economy.
+VR Experience
+In VR mode, users can:
 
-## Features
-
-### 🏙️ AI-Powered Finance District
-Access advanced DeFi services enhanced by artificial intelligence. Stake tokens, lend assets, and execute trades with the assistance of AI-driven market insights and recommendations.
-
-### 🖼️ NFT Art Galleries
-Explore and own dynamic AI-generated NFT masterpieces. The galleries feature exclusive collections that evolve based on market conditions and user interaction.
-
-### 🎰 Casino District
-Participate in crypto prediction markets and games within our Casino District. Test your strategy in AI-powered prediction games with real-time market data.
-
-### 💻 AI Workspaces
-Train custom AI models for DeFi analysis and automation. Access powerful tools to create personalized trading strategies and market analysis algorithms.
-
-### ⚔️ Battle Arena
-Compete in AI trading duels for rewards. Challenge other users to strategy contests where your AI models face off against theirs.
-
-## Technology Stack
-
-- **Frontend**: Next.js, React, Three.js, Tailwind CSS
-- **3D Rendering**: React Three Fiber, Three.js
-- **Animation**: Framer Motion
-- **Web3 Integration**: ethers.js
-- **AI Services**: TensorFlow.js
+Physically grab and manipulate sound assets in 3D space
+"Conduct" their portfolio like an orchestra
+Enter different sonic environments representing various market conditions
+Collaborate with others in shared spaces to create investment symphonies
