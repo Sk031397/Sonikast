@@ -12,8 +12,12 @@ const Marketplace = () => {
   ];
 
   return (
-    <div className="p-6">
-      <h2 className="text-xl font-semibold text-white mb-4">Marketplace</h2>
+    <div className="flex-1 p-6">
+      <div className="mb-8">
+        <h1 className="text-2xl font-bold mb-2">Marketplace</h1>
+        <p className="text-gray-400">Discover a diverse selection of compositions available for purchase or licensing. Browse through unique pieces across various genres, each crafted with creativity and passion.</p>
+      </div>
+      
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {products.map((product) => (

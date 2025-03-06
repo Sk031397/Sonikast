@@ -9,19 +9,23 @@ const Composer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   const addTrack = () => {
-    const newTrack = { id: tracks.length + 1, name: `Track ${tracks.length + 1}`, volume: 50 };
-    setTracks([...tracks, newTrack]);
+    setTracks((prevTracks) => [
+      ...prevTracks,
+      { id: prevTracks.length + 1, name: `Track ${prevTracks.length + 1}`, volume: 50 },
+    ]);
   };
 
   const removeTrack = (id:number) => {
-    setTracks(tracks.filter(track => track.id !== id));
+    setTracks((prevTracks) => prevTracks.filter(track => track.id !== id));
   };
 
   return (
-    <div className="p-6 bg-gray-900 text-white min-h-screen">
-      <h2 className="text-2xl font-bold mb-4">Sonic Composer</h2>
-      
-      <div className="flex items-center space-x-4 mb-6">
+    <div className='flex-1 p-6'>
+      <div className="mb-8">
+        <h1 className="text-2xl font-bold mb-2">Sonic Composer</h1>
+        <p className="text-gray-400">Create, manage, and fine-tune your tracks with ease.</p>
+      </div>
+      <div className="flex space-x-4 mb-6">
         <Button onClick={() => setIsPlaying(!isPlaying)} className="bg-blue-600 hover:bg-blue-700">
           {isPlaying ? <StopCircle className="w-5 h-5" /> : <Play className="w-5 h-5" />}
           <span className="ml-2">{isPlaying ? 'Stop' : 'Play'}</span>
@@ -32,7 +36,7 @@ const Composer = () => {
         </Button>
       </div>
 
-      <div className="space-y-4">
+      <div className="space-y-4 overflow-y-auto max-h-[70vh]">
         {tracks.map((track) => (
           <div key={track.id} className="flex items-center justify-between bg-gray-800 p-4 rounded-lg">
             <span>{track.name}</span>

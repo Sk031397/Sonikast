@@ -9,9 +9,12 @@ const Portfolio = () => {
   ];
 
   return (
-    <div className="p-6">
-      <h2 className="text-xl font-semibold text-white mb-4">My Portfolio</h2>
-
+    <div className="flex-1 p-6">
+      <div className="mb-8">
+        <h1 className="text-2xl font-bold mb-2">My Porfolio</h1>
+        <p className="text-gray-400">Explore a collection of my original compositions, each crafted with a unique blend of style and inspiration</p>
+      </div>
+      
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {compositions.map((comp) => (
           <div key={comp.id} className="bg-gray-800 p-4 rounded-lg shadow-md">
